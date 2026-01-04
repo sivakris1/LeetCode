@@ -1,26 +1,34 @@
-import java.util.ArrayList;
-import java.util.List;
+//Solving this problem by using Dynamic Sliding Window technique
+//taking an arr of 256 because testcase may contain UpperLetters,Digits etc..
+//storing the character at right pointer in ch and increasing the value of that ch in array
+//if conflict occurs we start decreasing from the left pointer until confilct is resolved
+//if no conflict occurs then we find the max length of subarray and store it and atlast increasing right pointer for every iteration
 
 class Solution {
     public int lengthOfLongestSubstring(String s) {
+        int[] arr = new int[256];
 
-        int start = 0;
-        int end = 0;
-        int max_length = 0;
+        int left = 0;
+        int right = 0;
+        int length = 0;
 
-        List<Character> list = new ArrayList<Character>();
+        while(right < s.length()){
+            char ch = s.charAt(right);
+            arr[ch] ++;
 
-        while(end < s.length()){
-            if(!list.contains(s.charAt(end))){
-                list.add(s.charAt(end));
-                end++;
-                max_length = Math.max(max_length,list.size());
+            while(arr[ch] > 1){
+                arr[s.charAt(left)]--;
+                left++;
             }
-            else{
-                list.remove(Character.valueOf(s.charAt(start)));
-                start++;
-            }
+
+            
+                length = Math.max(length,right-left+1);
+                right++;
+            
+
+            
+            
         }
-    return max_length;
+        return length;
     }
 }
