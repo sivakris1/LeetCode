@@ -2,14 +2,14 @@ class Solution {
     public int firstUniqChar(String s) {
         HashMap<Character,Integer> map = new HashMap<>();
 
-        // Pass 1: count frequencies
+        // Pass 1: count frequencies first
         for(int i=0;i<s.length();i++){
             char ch = s.charAt(i);
 
             map.put(ch,map.getOrDefault(ch,0)+1);
         }
 
-        // Pass 2: find first unique character
+        // Pass 2: find first unique character from first index in order
         for(int i=0;i<s.length();i++){
             char ch = s.charAt(i);
 
