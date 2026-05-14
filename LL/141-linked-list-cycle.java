@@ -1,4 +1,4 @@
-
+//approach1: using hashset for checking node already present or not
 public class Solution {
     public boolean hasCycle(ListNode head) {
         ListNode ptr = head;
@@ -13,6 +13,29 @@ public class Solution {
             map.add(ptr);
             ptr = ptr.next;
         }
+        return false;
+    }
+}
+
+
+//approach2: using slow and fast pointers
+
+
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null){
+
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+
         return false;
     }
 }
