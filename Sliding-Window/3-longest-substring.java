@@ -32,3 +32,34 @@ class Solution {
         return length;
     }
 }
+
+
+//approcah2: using sliding window and hashmap 
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        HashMap<Character,Integer> map = new HashMap<>();
+
+        int left = 0;
+        int ans = 0;
+
+        //always increment right
+        for(int right=0; right<s.length(); right++){
+            char ch = s.charAt(right);
+
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+
+            //if voilation occurs then move left till present right element count is less than or equal to 1
+            while(map.get(ch) > 1){
+                char leftCh = s.charAt(left);
+                map.put(leftCh, map.getOrDefault(leftCh,0)-1);
+                left++;
+            }
+
+            ans = Math.max(ans,right-left+1);
+
+        }
+
+        return ans;
+    }
+}
