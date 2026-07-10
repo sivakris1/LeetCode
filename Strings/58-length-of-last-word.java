@@ -1,18 +1,22 @@
+
+
+// by using for loop iterating all the characters one by one, if finding a ' ' then ans value will be set to 0 else it will increase the ans value by 1 at last after completing the loop it returns the ans value
+
 class Solution {
     public int lengthOfLastWord(String s) {
-        int count = 0;
-        String s1 = s.strip();
-        for(int i=0;i<s1.length();i++){
-            char ch = s1.charAt(i);
-
-            if(ch == ' '){
-                //count resets to 0 when it founds ' '
-                count = 0;
+        int ans = 0;
+        String str = s.trim();
+        if(str.length() == 0){
+            return 0;
+        }
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i) == ' '){
+                ans = 0;
             }
             else{
-                count++;
+                ans += 1;
             }
         }
-        return count;
+        return ans;
     }
 }
