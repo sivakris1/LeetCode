@@ -1,3 +1,5 @@
+
+//approach : by using sliding window, we maintain some window till k length and then remove from left while checking lexicographical order
 class Solution {
     public String shortestBeautifulSubstring(String s, int k) {
         int minLen = Integer.MAX_VALUE;
