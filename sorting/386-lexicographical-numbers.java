@@ -1,3 +1,5 @@
+
+//approach : add the values to arraylist first and then sort them in lexicographical order
 class Solution {
     public List<Integer> lexicalOrder(int n) {
         List<Integer> ans = new ArrayList<>();
