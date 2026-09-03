@@ -1,3 +1,4 @@
+# Write your MySQL query statement below
 WITH RankedStudents AS (
     SELECT 
       d.name AS Department,
